@@ -23,20 +23,29 @@ def main():
         else:
             df_filtered = df
 
-        st.subheader("Data Preview")
-        st.dataframe(df_filtered)
-
         st.subheader("Select Entries for OPML")
-        selected_indices = []
-        for index, row in df_filtered.iterrows():
-            checkbox = st.checkbox(f"{row['Artist']} - {row['Title']}", value=True, key=index)
-            if checkbox:
-                selected_indices.append(index)
 
+        # Create a list to hold the selections
+        selected_rows = []
+
+        for index, row in df_filtered.iterrows():
+            # Display as "Artist - Title [Catalog]"
+            checkbox_label = f"{row['Artist']} - {row['Title']} [{row['Catalog#']}]"
+            checkbox = st.checkbox(checkbox_label, value=True, key=index)
+            if checkbox:
+                selected_rows.append(row)
+
+        # Use a session state flag to control download button visibility
+        st.session_state.selected_rows = selected_rows
+
+        # Display the download button only if there are selected rows
         if st.button("Download OPML"):
-            if selected_indices:
-                selected_rows = df_filtered.iloc[selected_indices]
-                opml_file = export_to_opml(selected_rows)
+            if selected_rows:
+                # Create a DataFrame from the selected rows
+                selected_df = pd.DataFrame(selected_rows)
+                opml_file = export_to_opml(selected_df)
+
+                # Show the download button
                 st.download_button(
                     label="Download OPML",
                     data=opml_file,
