@@ -29,7 +29,7 @@ def main():
             end_date = st.date_input("Wantlist end date", value=today)
 
         # Add a text input for filtering by the Notes column
-        notes_filter = st.text_input("Filter by Notes (contains):", "")
+        notes_filter = st.text_input("Filter by keyword in your Wantlist notes:", "")
 
         if start_date and end_date:
             # Filter by date range
