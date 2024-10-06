@@ -25,18 +25,23 @@ def main():
         with col2:
             end_date = st.date_input("End Date", value=today)
 
+        # Add a text input for filtering by the Notes column
+        notes_filter = st.text_input("Filter by Notes (contains):", "")
+
         if start_date and end_date:
+            # Filter by date range
             df_filtered = df[(df['date_added'] >= pd.Timestamp(start_date)) & (df['date_added'] <= pd.Timestamp(end_date))]
         else:
             df_filtered = df
+
+        # Further filter by the Notes column if a filter word is provided
+        if notes_filter:
+            df_filtered = df_filtered[df_filtered['Notes'].str.contains(notes_filter, na=False, case=False)]
 
         st.subheader("Select Entries for OPML")
 
         # Create a list to hold the selections
         selected_rows = []
-
-        # Get the number of records
-        num_records = len(df_filtered)
 
         # Create a grid layout with 3 columns
         cols = st.columns(3)
