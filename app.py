@@ -15,8 +15,15 @@ def main():
         today = datetime.today().date()
 
         st.subheader("Filter by Date Range")
-        start_date = st.date_input("Start Date", value=today)
-        end_date = st.date_input("End Date", value=today)
+        
+        # Create two columns for date inputs
+        col1, col2 = st.columns(2)
+
+        with col1:
+            start_date = st.date_input("Start Date", value=today)
+
+        with col2:
+            end_date = st.date_input("End Date", value=today)
 
         if start_date and end_date:
             df_filtered = df[(df['date_added'] >= pd.Timestamp(start_date)) & (df['date_added'] <= pd.Timestamp(end_date))]
