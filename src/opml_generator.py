@@ -22,9 +22,9 @@ def create_opml(selected_rows):
             'type': 'rss',
             'xmlUrl': generate_rss_feed_url(row['release_id']),
             'htmlUrl': 'https://www.discogs.com/sell/',
-            'rssfr-numPosts': '5',
+            'rssfr-numPosts': '0',
             'rssfr-favicon': 'https://icons.feedercdn.com/www.discogs.com',
-            'rssfr-useNotifications': '1',
+            'rssfr-useNotifications': '0',
             'rssfr-updateInterval': '600000'
         })
 
