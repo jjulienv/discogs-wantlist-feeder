@@ -7,23 +7,26 @@ import pandas as pd
 def main():
     st.title("Discogs Wantlist RSS Feed Generator")
 
-    uploaded_file = st.file_uploader("Upload your Discogs wantlist CSV", type="csv")
+    
+    st.subheader("Upload your Discogs wantlist CSV")
+
+    uploaded_file = st.file_uploader(type="csv")
 
     if uploaded_file:
         df = load_csv(uploaded_file)
 
         today = datetime.today().date()
 
-        st.subheader("Filter by Date Range")
+        st.subheader("Filter the releases you want to track")
         
         # Create two columns for date inputs
         col1, col2 = st.columns(2)
 
         with col1:
-            start_date = st.date_input("Start Date", value=today)
+            start_date = st.date_input("Wantlist start date", value=today)
 
         with col2:
-            end_date = st.date_input("End Date", value=today)
+            end_date = st.date_input("Wantlist end date", value=today)
 
         # Add a text input for filtering by the Notes column
         notes_filter = st.text_input("Filter by Notes (contains):", "")
