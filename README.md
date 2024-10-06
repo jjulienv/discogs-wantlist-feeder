@@ -11,7 +11,7 @@ A Streamlit app to generate custom RSS feeds from a Discogs wantlist, based on s
 ## How to Use
 
 	1.  	Go to {insert final URL}
-    	2.	Upload your wantlist CSV.
+ 	2.  	Upload your wantlist CSV.
 	3.	Filter releases by the date added.
 	4.	Select the entries you wish to monitor via RSS.
 	5.	Download the generated OPML file for your RSS reader.
