@@ -28,12 +28,23 @@ def main():
         # Create a list to hold the selections
         selected_rows = []
 
+        # Get the number of records
+        num_records = len(df_filtered)
+
+        # Create a grid layout with 3 columns
+        cols = st.columns(3)
+
+        # Iterate over the filtered DataFrame and display checkboxes in the columns
         for index, row in df_filtered.iterrows():
+            # Determine which column to place the checkbox in
+            col_index = index % 3  # Cycle through columns
+            
             # Display as "Artist - Title [Catalog]"
             checkbox_label = f"{row['Artist']} - {row['Title']} [{row['Catalog#']}]"
-            checkbox = st.checkbox(checkbox_label, value=True, key=index)
-            if checkbox:
-                selected_rows.append(row)
+            with cols[col_index]:
+                checkbox = st.checkbox(checkbox_label, value=True, key=index)
+                if checkbox:
+                    selected_rows.append(row)
 
         # Use a session state flag to control download button visibility
         st.session_state.selected_rows = selected_rows
