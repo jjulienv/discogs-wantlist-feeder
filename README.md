@@ -1,5 +1,5 @@
 # discogs-wantlist-feeder
-A Streamlit app to generate custom RSS feeds from a Discogs wantlist, based on selected date ranges and releases.
+A Streamlit app to generate custom RSS feeds from a discogs.com wantlist and add them to feeder.co
 
 ## Features
 - Upload your Discogs wantlist CSV.
