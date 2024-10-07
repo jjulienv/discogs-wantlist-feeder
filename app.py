@@ -9,9 +9,7 @@ def main():
     
     st.header("Generate custom RSS feeds from your Discogs wantlis,t and batch add them to your RSS reader.")
 
-    st.subheader("Upload your Discogs wantlist CSV")
-
-    uploaded_file = st.file_uploader("",type="csv")
+    uploaded_file = st.file_uploader("Upload your the CSV file of your Discogs wantlist",type="csv")
 
     if uploaded_file:
         df = load_csv(uploaded_file)
