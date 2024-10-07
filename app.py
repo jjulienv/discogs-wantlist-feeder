@@ -10,7 +10,7 @@ def main():
     
     st.subheader("Upload your Discogs wantlist CSV")
 
-    uploaded_file = st.file_uploader(type="csv")
+    uploaded_file = st.file_uploader("",type="csv")
 
     if uploaded_file:
         df = load_csv(uploaded_file)
