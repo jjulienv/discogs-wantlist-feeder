@@ -7,7 +7,7 @@ import pandas as pd
 def main():
     st.title("Discogs Wantlist Feeder")
     
-    st.header("Generate custom RSS feeds from your Discogs wantlis,t and batch add them to your RSS reader.")
+    st.header("Generate custom RSS feeds from your Discogs wantlist, and batch add them to your RSS reader.")
 
     uploaded_file = st.file_uploader("Upload your the CSV file of your Discogs wantlist",type="csv")
 
