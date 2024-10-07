@@ -5,8 +5,9 @@ from datetime import datetime
 import pandas as pd
 
 def main():
-    st.title("Discogs Wantlist Feeder:")
-    st.title("Generate custom RSS feeds from your Discogs wantlis,t and batch add them to your RSS reader.")
+    st.title("Discogs Wantlist Feeder")
+    
+    st.header("Generate custom RSS feeds from your Discogs wantlis,t and batch add them to your RSS reader.")
 
     st.subheader("Upload your Discogs wantlist CSV")
 
